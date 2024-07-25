@@ -1,0 +1,10 @@
+module(
+    name = "downstream",
+)
+
+bazel_dep(name = "upstream")
+
+local_path_override(
+    module_name = "upstream",
+    path = "../upstream",
+)

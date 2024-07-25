@@ -1,0 +1,14 @@
+package(default_visibility = ["//visibility:public"])
+
+label_flag(
+    name = "label_flag",
+    build_setting_default = ":default",
+)
+
+cc_library(
+    name = "default",
+)
+
+cc_library(
+    name = "alt",
+)

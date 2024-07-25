@@ -1,0 +1,14 @@
+load("@local_config_platform//:constraints.bzl", "HOST_CONSTRAINTS")
+
+cc_library(
+    name = "library",
+    deps = ["@upstream//:label_flag"],
+)
+
+platform(
+    name = "alt_platform",
+    flags = [
+        "--@upstream//:label_flag=@upstream//:alt",
+    ],
+    constraint_values = HOST_CONSTRAINTS,
+)

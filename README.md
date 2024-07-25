@@ -28,5 +28,16 @@ Repro steps:
     ERROR: /usr/local/google/home/tpudlik/.cache/bazel/_bazel_tpudlik/70950bf1321433197772d904dffeb6b1/external/upstream~/BUILD.bazel:3:11: every rule of type label_flag implicitly depends upon the target '@@upstream//:alt', but this target could not be found because of: no such package '@@upstream//': The repository '@@upstream' could not be resolved: Repository '@@upstream' is not defined
     ```
 
+I can fix this by changing the `flags` attribute to,
+
+```
+flags = [
+    "--@@upstream~//:label_flag=@@upstream~//:alt",
+],
+```
+
+But this is very unintuitive, and seems to depend on some bzlmod implementation
+detail.
+
 Note: the `.bazelversion` used in the `downstream` project was chosen to contain
 the fix for https://github.com/bazelbuild/bazel/issues/22995.

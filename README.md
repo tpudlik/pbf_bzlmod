@@ -32,7 +32,7 @@ I can fix this by changing the `flags` attribute to,
 
 ```
 flags = [
-    "--@@upstream~//:label_flag=@@upstream~//:alt",
+    "--@upstream//:label_flag=@@upstream~//:alt",
 ],
 ```
 
